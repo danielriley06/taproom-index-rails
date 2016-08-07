@@ -1,0 +1,45 @@
+<%= form_for(@review) do |f| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% @review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ambiance %><br>
+    <%= f.number_field :ambiance %>
+  </div>
+  <div class="field">
+    <%= f.label :service %><br>
+    <%= f.number_field :service %>
+  </div>
+  <div class="field">
+    <%= f.label :selection %><br>
+    <%= f.number_field :selection %>
+  </div>
+  <div class="field">
+    <%= f.label :food %><br>
+    <%= f.number_field :food %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br>
+    <%= f.number_field :value %>
+  </div>
+  <div class="field">
+    <%= f.label :date_visited %><br>
+    <%= f.date_select :date_visited %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

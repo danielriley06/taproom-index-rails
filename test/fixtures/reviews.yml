@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ambiance: 1
+  service: 1
+  selection: 1
+  food: 1
+  value: 1
+  date_visited: 2016-08-07
+  description: MyText
+
+two:
+  ambiance: 1
+  service: 1
+  selection: 1
+  food: 1
+  value: 1
+  date_visited: 2016-08-07
+  description: MyText

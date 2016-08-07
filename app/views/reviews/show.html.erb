@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ambiance:</strong>
+  <%= @review.ambiance %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @review.service %>
+</p>
+
+<p>
+  <strong>Selection:</strong>
+  <%= @review.selection %>
+</p>
+
+<p>
+  <strong>Food:</strong>
+  <%= @review.food %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @review.value %>
+</p>
+
+<p>
+  <strong>Date visited:</strong>
+  <%= @review.date_visited %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @review.description %>
+</p>
+
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', reviews_path %>

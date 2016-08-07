@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @brewery.name %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @brewery.city %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @brewery.country %>
+</p>
+
+<p>
+  <strong>Postal code:</strong>
+  <%= @brewery.postal_code %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @brewery.state %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= @brewery.telephone %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @brewery.type %>
+</p>
+
+<p>
+  <strong>Has pub:</strong>
+  <%= @brewery.has_pub %>
+</p>
+
+<%= link_to 'Edit', edit_brewery_path(@brewery) %> |
+<%= link_to 'Back', breweries_path %>
