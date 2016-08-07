@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'home#index'
   resources :reviews
   resources :breweries
   devise_for :users
