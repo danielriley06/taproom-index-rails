@@ -8,7 +8,7 @@
       <div class="input-group col-md-12">
         <%= form_tag(breweries_path, :method => "get", id: "search-form") do %>
           <div class="input-group">
-            <%= text_field_tag :revije, nil, class:'form-control', placeholder:'Search for brewpubs by city, state, or name...'%>
+            <%= text_field_tag :search, params[:search], class:'form-control', placeholder:'Search for brewpubs by city, state, or name...'%>
             <span class="input-group-btn">
               <%= button_tag( :class => "btn btn-danger") do %>
               <span class='glyphicon glyphicon-search'></span>

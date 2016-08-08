@@ -4,8 +4,14 @@ class BreweriesController < ApplicationController
   # GET /breweries
   # GET /breweries.json
   def index
-    @breweries = Brewery.filter(params.slice(:location, :starts_with))
+    @search = params[:search]
+    if params[:search]
+      @breweries = Brewery.search(@search)
+    else
+      @breweries = Brewery.all.order('created_at DESC')
+    end
   end
+
 
   # GET /breweries/1
   # GET /breweries/1.json

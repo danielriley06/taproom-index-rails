@@ -18,6 +18,7 @@
   </thead>
 
   <tbody>
+    <% if @breweries.any? %>
     <% @breweries.each do |brewery| %>
       <tr>
         <td><%= brewery.name %></td>
@@ -32,6 +33,9 @@
         <td><%= link_to 'Edit', edit_brewery_path(brewery) %></td>
         <td><%= link_to 'Destroy', brewery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      <% end %>
+    <% else %>
+      <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
     <% end %>
   </tbody>
 </table>
