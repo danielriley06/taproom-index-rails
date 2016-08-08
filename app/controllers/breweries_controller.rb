@@ -4,11 +4,9 @@ class BreweriesController < ApplicationController
   # GET /breweries
   # GET /breweries.json
   def index
-    @search = params[:search]
-    if params[:search]
-      @breweries = Brewery.search(@search)
-    else
-      @breweries = Brewery.all.order('created_at DESC')
+    respond_to do |format|
+      format.html
+      format.json { render json: ProductsDatatable.new(view_context) }
     end
   end
 
