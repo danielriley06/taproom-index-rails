@@ -1,43 +1,19 @@
 <div class="container brewery-container">
   <p id="notice"><%= notice %></p>
 
-  <h1>Listing Breweries</h1>
+  <h1>Brewpubs</h1>
 
-  <table>
+  <table id="breweries-table" class="display table table-bordered table-striped" data-source="<%= breweries_path(format: :json) %>">
     <thead>
       <tr>
         <th>Name</th>
         <th>City</th>
-        <th>Country</th>
-        <th>Postal code</th>
         <th>State</th>
-        <th>Telephone</th>
-        <th>Type</th>
-        <th>Has pub</th>
-        <th colspan="3"></th>
+        <th>RateBeer Avg.</th>
       </tr>
     </thead>
 
     <tbody>
-      <% if @breweries.any? %>
-      <% @breweries.each do |brewery| %>
-        <tr>
-          <td><%= brewery.name %></td>
-          <td><%= brewery.city %></td>
-          <td><%= brewery.country %></td>
-          <td><%= brewery.postal_code %></td>
-          <td><%= brewery.state %></td>
-          <td><%= brewery.telephone %></td>
-          <td><%= brewery.type %></td>
-          <td><%= brewery.has_pub %></td>
-          <td><%= link_to 'Show', brewery %></td>
-          <td><%= link_to 'Edit', edit_brewery_path(brewery) %></td>
-          <td><%= link_to 'Destroy', brewery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-        <% end %>
-      <% else %>
-        <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
-      <% end %>
     </tbody>
   </table>
 

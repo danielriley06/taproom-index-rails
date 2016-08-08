@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Brewery.create(name: 'Wiseacre', city: 'Memphis', state: 'TN', postal_code: '38139')
+Brewery.create(name: 'Yazoo', city: 'Nashville', state: 'TN', postal_code: '32891')

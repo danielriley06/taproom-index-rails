@@ -7,7 +7,7 @@ class Brewery < ActiveRecord::Base
     [city, state].join(', ')
   end
 
-  def self.search(search)
+  def self.filter_brewery_name(search)
     Brewery.where("name LIKE ? OR city LIKE ? OR state LIKE ?", "%#{search}%","%#{search}%","%#{search}%")
   end
 end

@@ -4,9 +4,10 @@ class BreweriesController < ApplicationController
   # GET /breweries
   # GET /breweries.json
   def index
+    @search = params[:search].to_s
     respond_to do |format|
       format.html
-      format.json { render json: ProductsDatatable.new(view_context) }
+      format.json { render json: BreweryDatatable.new(view_context) }
     end
   end
 
