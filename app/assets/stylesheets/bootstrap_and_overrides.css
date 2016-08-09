@@ -6,7 +6,13 @@
 */
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+.btn .white-text {
+  color: #FFF;
+}
 
+a:visited {
+  color: #FFF;
+}
 .navbar {
   min-height: 80px;
 }
