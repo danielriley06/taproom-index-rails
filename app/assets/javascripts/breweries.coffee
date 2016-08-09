@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
 
-  table = $('#breweries-table').dataTable
+  $('#breweries-table').dataTable
     pagingType: 'full_numbers'
     processing: true
     serverSide: true
