@@ -6,6 +6,8 @@
 */
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+body { padding-top: 74px; }
+
 .btn .white-text {
   color: #FFF;
 }
@@ -151,5 +153,5 @@ a:visited {
 }
 
 .brewery-container {
-  padding-top: 80px;
+  
 }

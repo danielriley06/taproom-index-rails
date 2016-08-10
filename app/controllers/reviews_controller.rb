@@ -14,7 +14,8 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    @review = Review.new
+    @brewery = Brewery.find(params[:brewery_id])
+    @review = Review.new(brewery_id: params[:brewery_id])
   end
 
   # GET /reviews/1/edit
@@ -24,11 +25,13 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
   def create
+    @brewery = Brewery.find(params[:brewery_id])
     @review = Review.new(review_params)
+
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to brewery_path(@brewery), notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
@@ -69,6 +72,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:ambiance, :service, :selection, :food, :value, :date_visited, :description)
+      params.require(:review).permit(:ambiance, :service, :selection, :food, :value, :date_visited, :description, :brewery_id, :user_id)
     end
 end
