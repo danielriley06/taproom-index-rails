@@ -50,12 +50,21 @@
     <h3>No reviews just yet, would you like to add the first!</h3>
     <%= link_to 'Write a Review', new_brewery_review_path(@brewery) %>
   <% else %>
-    <% @brewery.reviews.each do |review| %>
-      <div class="reviews">
-        <div class="star-rating" data-score= <%= review.ambiance %> ></div>
-        <p><%= review.description %></p>
-      </div>
-    <% end %>
+  <table id="reviews-table" class="display table table-bordered table-striped" data-source="<%= brewery_path(format: :json) %>">
+    <thead>
+      <tr>
+        <th>Ambiance</th>
+        <th>Service</th>
+        <th>Selection</th>
+        <th>Food</th>
+        <th>Value</th>
+        <th>Comment</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    </tbody>
+  </table>
   <% end %>
 </div>
   <div class="form-group row">

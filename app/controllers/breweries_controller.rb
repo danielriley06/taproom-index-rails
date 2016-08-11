@@ -15,6 +15,10 @@ class BreweriesController < ApplicationController
   # GET /breweries/1
   # GET /breweries/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json { render json: ReviewDatatable.new(view_context) }
+    end
   end
 
   # GET /breweries/new
