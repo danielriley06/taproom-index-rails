@@ -7,7 +7,7 @@ class CreateBreweries < ActiveRecord::Migration
       t.integer :postal_code
       t.string :state
       t.string :telephone
-      t.string :type
+      t.string :brewery_type
       t.boolean :has_pub
 
       t.timestamps null: false

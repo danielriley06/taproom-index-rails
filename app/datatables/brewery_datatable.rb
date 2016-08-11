@@ -8,7 +8,7 @@ class BreweryDatatable < AjaxDatatablesRails::Base
 
   def searchable_columns
     # Declare strings in this format: ModelName.column_name
-    @searchable_columns ||= %w(Brewery.name Brewery.city Brewery.state Brewery.type)
+    @searchable_columns ||= %w(Brewery.name Brewery.city Brewery.state Brewery.brewery_type)
   end
 
   private
@@ -19,7 +19,7 @@ class BreweryDatatable < AjaxDatatablesRails::Base
         record.name,
         record.city,
         record.state,
-        record.type,
+        record.brewery_type,
         link_to("Info", record, :class => 'btn btn-block btn-success')
       ]
     end

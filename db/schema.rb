@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(version: 20160810213401) do
     t.integer  "postal_code"
     t.string   "state"
     t.string   "telephone"
-    t.string   "type"
+    t.string   "brewery_type"
     t.boolean  "has_pub"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "reviews", force: :cascade do |t|
