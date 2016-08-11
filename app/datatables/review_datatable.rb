@@ -40,7 +40,7 @@ class ReviewDatatable < AjaxDatatablesRails::Base
   end
 
   def get_raw_records
-  Brewery.includes(:reviews).references(:reviews)
+  Review.where(brewery_id: params[:id])
   end
 
   # ==== Insert 'presenter'-like methods below if necessary
