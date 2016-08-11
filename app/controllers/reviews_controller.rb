@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /reviews
   # GET /reviews.json
@@ -15,7 +17,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @brewery = Brewery.find(params[:brewery_id])
-    @review = Review.new(brewery_id: params[:brewery_id])
+    @review = Review.new(brewery_id: params[:brewery_id], user_id: current_user.id)
   end
 
   # GET /reviews/1/edit
@@ -68,6 +70,10 @@ class ReviewsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_review
       @review = Review.find(params[:id])
+    end
+
+    def set_review
+      @user = current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
