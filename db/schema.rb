@@ -17,8 +17,9 @@ ActiveRecord::Schema.define(version: 20160812233106) do
     t.integer  "user_id"
     t.integer  "brewery_id"
     t.integer  "review_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.date     "date_visited"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "beers", force: :cascade do |t|
