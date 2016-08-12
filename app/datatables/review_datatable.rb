@@ -29,6 +29,7 @@ class ReviewDatatable < AjaxDatatablesRails::Base
   def data
     records.map do |record|
       [
+        record.user.email,
         record.ambiance,
         record.service,
         record.selection,
