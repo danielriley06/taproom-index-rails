@@ -48,7 +48,7 @@
   <h3 class="review_title"><%= @brewery.name %> Reviews</h3>
   <% if @brewery.reviews.blank? %>
     <h3>No reviews just yet, would you like to add the first!</h3>
-    <%= link_to 'Write a Review', new_brewery_review_path(@brewery) %>
+    <%= link_to 'Write a Review', new_brewery_review_path(@brewery), class: "btn btn-primary" %>
   <% else %>
   <table id="reviews-table" class="display table table-bordered table-striped" data-source="<%= brewery_path(format: :json) %>">
     <thead>
