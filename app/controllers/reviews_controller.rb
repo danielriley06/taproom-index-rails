@@ -72,7 +72,7 @@ class ReviewsController < ApplicationController
       @review = Review.find(params[:id])
     end
 
-    def set_review
+    def set_user
       @user = current_user
     end
 

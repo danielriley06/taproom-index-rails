@@ -20,7 +20,7 @@ class BreweryDatatable < AjaxDatatablesRails::Base
         record.city,
         record.state,
         record.brewery_type,
-        #link_to("Info", record, :class => 'btn btn-block btn-success')
+        link_to("Info", record, :class => 'btn btn-block btn-success')
       ]
     end
   end

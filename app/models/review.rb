@@ -1,4 +1,5 @@
 class Review < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :brewery
+  has_many :associations
+  has_many :users, through: :associations
+  has_one :brewery, through: :associations
 end

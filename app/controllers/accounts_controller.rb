@@ -1,11 +1,10 @@
 class AccountsController < ApplicationController
-  #before_action :set_brewery, only: [:index]
+  before_action :set_user, only: [:show]
   before_action :authenticate_user!
 
   # GET /breweries
   # GET /breweries.json
-  def index
-    @user = current_user
+  def show
     respond_to do |format|
       format.html
       format.json { render json: AccountDatatable.new(view_context) }
@@ -14,12 +13,12 @@ class AccountsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    #def set_brewery
-    #  @brewery = Brewery.find(params[:id])
-    #end
+    def set_user
+      @user = current_user
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def brewery_params
-      params.require(:brewery).permit(:name, :city, :country, :postal_code, :state, :telephone, :brewery_type, :has_pub)
+    def account_params
+      params.require(:account).permit(:name, :city, :country, :postal_code, :state, :telephone, :brewery_type, :has_pub, :user_id)
     end
   end

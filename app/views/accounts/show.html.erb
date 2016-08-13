@@ -1,16 +1,16 @@
 <div class="container brewery-container">
   <p id="notice"><%= notice %></p>
 
-  <h1>Brewpubs</h1>
+  <h1><%= current_user.username %>'s Brewpubs</h1>
 
-  <table id="breweries-table" class="display table table-bordered table-striped" data-source="<%= breweries_path(format: :json) %>">
+  <table id="accounts-table" class="display table table-bordered table-striped" data-source="<%= account_path(format: :json) %>">
     <thead>
       <tr>
         <th>Name</th>
         <th>City</th>
         <th>State</th>
-        <th>Score</th>
-        <th>Info</th>
+        <th>Date Visited</th>
+        <th></th>
       </tr>
     </thead>
 
