@@ -1,5 +1,5 @@
 class AccountDatatable < AjaxDatatablesRails::Base
-  def_delegators :@view, :link_to, :h, :mailto, :edit_resource_path, :resource_url, :other_method, :brewery_path
+  def_delegators :@view, :link_to, :link_to_if, :h, :mailto, :edit_resource_path, :resource_url, :other_method, :content_tag, :concat, :brewery_path, :new_brewery_review_path, :edit_brewery_review_path
 
   def sortable_columns
     # Declare strings in this format: ModelName.column_name
@@ -20,7 +20,12 @@ class AccountDatatable < AjaxDatatablesRails::Base
         record.brewery.city,
         record.brewery.state,
         record.date_visited,
-        link_to("Info", brewery_path(:id => record.brewery_id), class: 'btn btn-block btn-success')
+        content_tag(:div) do
+          concat(link_to("Info", brewery_path(:id => record.brewery_id), class: 'btn btn-success'))
+          concat(link_to_if(record.review_id.nil?, "Review", new_brewery_review_path(brewery_id: record.brewery_id), class: 'btn btn-success'))
+          #concat(link_to_if(record.review_id.present?, "Review", edit_brewery_review_path(:brewery_id => record.brewery_id, :id => record.review_id)))
+
+        end
       ]
     end
   end

@@ -6,79 +6,9 @@
 */
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
-body { padding-top: 74px; }
-
-.btn .white-text {
-  color: #FFF;
+body {
+  padding-top: 50px;
 }
-
-a:visited {
-  color: #FFF;
-}
-.navbar {
-  min-height: 80px;
-}
-
-@media (max-width: 992px){
-.navbar {
-  min-height: 60px;
-}
-}
-.navbar-semi-transparent {
-  background-color: rgba(0,0,0,0.6);
-}
-
-@media (max-width: 992px){
-.navbar-title {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 132px;
-    height: 40px;
-    background-size: 132px 40px;
-  }
-}
-
-  .navbar-default .navbar-brand {
-      color: #FFF;
-  }
-
-  .navbar-brand {
-    padding: 0;
-    height: auto;
-    line-height: 1;
-}
-.navbar-title {
-    margin-top: 17px;
-    margin-bottom: 17px;
-    float: left;
-    font-size: 18px;
-    font-weight: 300;
-    margin-left: 6px;
-    padding-top: 2px
-}
-
-@media(min-width: 992px) {
-    .navbar-title {
-        margin-top:26px;
-        margin-bottom: 26px;
-        font-size: 26px
-    }
-}
-
-.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-    color: #FFF;
-    background-color: transparent;
-}
-
-.dropdown {
-  padding-top: 15px;
-  padding-bottom: 15px;
-
-}
-.navbar-default .navbar-nav>li>a {
-    color: #FFF;
-}
-
 #login-dp{
     min-width: 250px;
     padding: 14px 14px 0;
@@ -105,7 +35,7 @@ a:visited {
 }
 .btn-fb{
     color: #fff;
-    background-color:#428bca;
+    background-color:#3b5998;
 }
 .btn-fb:hover{
     color: #fff;
@@ -119,6 +49,12 @@ a:visited {
     color: #fff;
     background-color:#59b5fa;
 }
+
+.account-button {
+    background-color: #222;
+    color: #777;
+    border: 0px;
+}
 @media(max-width:768px){
     #login-dp{
         background-color: inherit;
@@ -128,30 +64,4 @@ a:visited {
         background-color: inherit;
         border-top:0 none;
     }
-}
-
-
-.jumbotron {
-    background: rgb(255, 255, 255);
-    margin: 0;
-    position: relative;
-    width: 100%;
-    padding-top: 60px;
-    padding-bottom: 100px;
-}
-
-@media(min-width: 768px) {
-    .jumbotron {
-        padding-top:150px;
-        padding-bottom: 180px
-    }
-}
-
-.jumbotron-devices {
-  background: #232323;
-  color: #FFF;
-}
-
-.brewery-container {
-  
 }
