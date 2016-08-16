@@ -1,5 +1,8 @@
 class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy, :user]
+  before_action :authenticate_user!
+  after_action :verify_authorized, :except => :index
+
 
   # GET /breweries
   # GET /breweries.json
@@ -34,6 +37,7 @@ class BreweriesController < ApplicationController
   # POST /breweries.json
   def create
     @brewery = Brewery.new(brewery_params)
+    authorize @brewery
 
     respond_to do |format|
       if @brewery.save
