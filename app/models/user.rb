@@ -1,8 +1,7 @@
 class User < ActiveRecord::Base
-  
-  has_many :associations
-  has_many :breweries, through: :associations
-  has_many :reviews, through: :associations
+
+  has_many :reviews
+  has_many :breweries, through: :reviews
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

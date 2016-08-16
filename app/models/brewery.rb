@@ -1,8 +1,7 @@
 class Brewery < ActiveRecord::Base
 
-  has_many :associations
-  has_many :users, through: :associations
-  has_many :reviews, through: :associations
+  has_many :reviews
+  has_many :beers
 
   def location
     [city, state].join(', ')

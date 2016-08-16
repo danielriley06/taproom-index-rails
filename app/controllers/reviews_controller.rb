@@ -30,7 +30,6 @@ class ReviewsController < ApplicationController
     @brewery = Brewery.find(params[:brewery_id])
     @review = Review.new(review_params)
 
-
     respond_to do |format|
       if @review.save
         format.html { redirect_to brewery_path(@brewery), notice: 'Review was successfully created.' }

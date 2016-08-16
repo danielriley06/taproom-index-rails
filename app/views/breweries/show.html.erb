@@ -43,7 +43,7 @@
   </div>
   <div class="col-md-4">
   <h3 class="review_title"><%= @brewery.name %> Reviews</h3>
-  <% if @brewery.reviews.blank? %>
+  <% if Review.where(brewery_id: params[:id]).blank? %>
   <div class="form-group row">
     <div class="col-sm-10">
     <h3>No reviews just yet, would you like to add the first!</h3>
