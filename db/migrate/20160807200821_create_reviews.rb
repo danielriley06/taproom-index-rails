@@ -8,8 +8,12 @@ class CreateReviews < ActiveRecord::Migration
       t.integer :value
       t.date :date_visited
       t.text :description
+      t.integer :brewery_id
+      t.integer :user_id
 
       t.timestamps null: false
     end
+    add_index :reviews, :user_id
+    add_index :reviews, :brewery_id
   end
 end

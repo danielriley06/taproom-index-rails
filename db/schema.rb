@@ -13,23 +13,17 @@
 
 ActiveRecord::Schema.define(version: 20160816020632) do
 
-  create_table "associations", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "brewery_id"
-    t.integer  "review_id"
-    t.date     "date_visited"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
   create_table "beers", force: :cascade do |t|
     t.string   "name"
     t.string   "style"
     t.float    "abv"
     t.text     "description"
+    t.integer  "brewery_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "beers", ["brewery_id"], name: "index_beers_on_brewery_id"
 
   create_table "breweries", force: :cascade do |t|
     t.string   "name"
@@ -40,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160816020632) do
     t.string   "telephone"
     t.string   "brewery_type"
     t.boolean  "has_pub"
+    t.integer  "review_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -52,11 +47,14 @@ ActiveRecord::Schema.define(version: 20160816020632) do
     t.integer  "value"
     t.date     "date_visited"
     t.text     "description"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
     t.integer  "brewery_id"
     t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
+
+  add_index "reviews", ["brewery_id"], name: "index_reviews_on_brewery_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username",               default: "",    null: false

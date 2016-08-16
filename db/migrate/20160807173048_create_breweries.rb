@@ -9,6 +9,7 @@ class CreateBreweries < ActiveRecord::Migration
       t.string :telephone
       t.string :brewery_type
       t.boolean :has_pub
+      t.integer :review_id
 
       t.timestamps null: false
     end
