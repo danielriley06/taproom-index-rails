@@ -25,6 +25,14 @@ GIT
       less-rails (>= 2.5.0)
       railties (>= 3.1)
 
+GIT
+  remote: git://github.com/sudosu/rails_admin_pundit.git
+  revision: f86fecb6716d3004de56fb94e5a6b64858124c05
+  specs:
+    rails_admin_pundit (0.0.1)
+      pundit (>= 0.2.3)
+      rails_admin (>= 0.6.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -87,8 +95,12 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.7.0)
+    font-awesome-rails (4.6.3.1)
+      railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    haml (4.0.7)
+      tilt
     i18n (0.7.0)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -100,6 +112,9 @@ GEM
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
     json (1.8.3)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (2.7.1)
@@ -117,6 +132,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    nested_form (0.3.2)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
@@ -125,6 +141,9 @@ GEM
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (1.6.4)
+    rack-pjax (0.8.0)
+      nokogiri (~> 1.5)
+      rack (~> 1.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.6)
@@ -146,6 +165,20 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_admin (0.8.1)
+      builder (~> 3.1)
+      coffee-rails (~> 4.0)
+      font-awesome-rails (>= 3.0, < 5)
+      haml (~> 4.0)
+      jquery-rails (>= 3.0, < 5)
+      jquery-ui-rails (~> 5.0)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (~> 0.7)
+      rails (~> 4.0)
+      remotipart (~> 1.0)
+      safe_yaml (~> 1.0)
+      sass-rails (>= 4.0, < 6)
     railties (4.2.6)
       actionpack (= 4.2.6)
       activesupport (= 4.2.6)
@@ -154,8 +187,10 @@ GEM
     rake (11.2.2)
     rdoc (4.2.2)
       json (~> 1.4)
+    remotipart (1.2.1)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
+    safe_yaml (1.0.4)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -189,7 +224,6 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
-    will_paginate (3.1.0)
 
 PLATFORMS
   ruby
@@ -205,6 +239,8 @@ DEPENDENCIES
   jquery-ui-rails
   pundit
   rails (= 4.2.6)
+  rails_admin
+  rails_admin_pundit!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
@@ -212,7 +248,6 @@ DEPENDENCIES
   twitter-bootstrap-rails!
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
-  will_paginate
 
 BUNDLED WITH
    1.12.5

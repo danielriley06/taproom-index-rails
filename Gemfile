@@ -4,13 +4,16 @@ source 'https://rubygems.org'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'ajax-datatables-rails', github: 'antillas21/ajax-datatables-rails'
 gem 'jquery-ui-rails'
-gem 'will_paginate'
+#gem 'will_paginate'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 # Pundit to handle policies
 gem 'pundit'
 # Devise to handle auth
 gem 'devise'
+# rails_admin to add admin dashboard
+gem 'rails_admin'
+gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
