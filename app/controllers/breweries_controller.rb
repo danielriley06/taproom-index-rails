@@ -1,7 +1,7 @@
 class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy, :user]
   before_action :authenticate_user!
-  after_action :verify_authorized, :except => :index
+  after_action :verify_authorized, :except => [:index, :show]
 
 
   # GET /breweries
@@ -27,10 +27,12 @@ class BreweriesController < ApplicationController
   # GET /breweries/new
   def new
     @brewery = Brewery.new
+    authorize @brewery
   end
 
   # GET /breweries/1/edit
   def edit
+    authorize @brewery
   end
 
   # POST /breweries
@@ -53,6 +55,7 @@ class BreweriesController < ApplicationController
   # PATCH/PUT /breweries/1
   # PATCH/PUT /breweries/1.json
   def update
+    authorize @brewery
     respond_to do |format|
       if @brewery.update(brewery_params)
         format.html { redirect_to @brewery, notice: 'Brewery was successfully updated.' }

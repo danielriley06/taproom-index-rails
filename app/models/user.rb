@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  enum role: [:user, :admin]
-
+  
   has_many :associations
   has_many :breweries, through: :associations
   has_many :reviews, through: :associations

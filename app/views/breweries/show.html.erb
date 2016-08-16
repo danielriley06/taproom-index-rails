@@ -72,7 +72,9 @@
   <div class="form-group row">
     <div class="col-sm-10">
       <%= link_to "Back", breweries_path, class: "btn btn-primary", method: :get %>
+      <% if policy(@brewery).create? %>
       <%= link_to 'Edit', edit_brewery_path(@brewery), class: 'btn btn-success' %>
+      <% end %>
     </div>
   </div>
 </div>

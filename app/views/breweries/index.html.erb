@@ -18,6 +18,6 @@
 
   <br>
   <% if policy(Brewery.new).create? %>
-    <%= link_to 'New Brewery', new_brewery_path, method: :get %>
+    <%= link_to 'New Brewery', new_brewery_path, method: :get, class: "btn btn-danger" %>
   <% end %>
 </div>
