@@ -15,19 +15,19 @@ class ReviewDatatable < AjaxDatatablesRails::Base
   def data
     records.map do |record|
       [
-        record.user.email,
-        record.review.ambiance,
-        record.review.service,
-        record.review.selection,
-        record.review.food,
-        record.review.value,
-        record.review.description
+        record.user.username,
+        record.ambiance,
+        record.service,
+        record.selection,
+        record.food,
+        record.value,
+        record.description
       ]
     end
   end
 
   def get_raw_records
-    Association.where(brewery_id: params[:id])
+    Review.joins(:user, :brewery).where('brewery_id = ?', params[:id])
   end
 
   # ==== Insert 'presenter'-like methods below if necessary
