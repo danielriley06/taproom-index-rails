@@ -51,7 +51,8 @@
   </div>
 </div>
   <% else %>
-  <table id="reviews-table" class="display table table-bordered table-striped" data-source="<%= brewery_path(format: :json) %>">
+  <div class="datatable-style" data-source = "<%= brewery_path(format: :json) %>">
+  <table id="reviews-table" class="display table table-hover">
     <thead>
       <tr>
         <th>User</th>

@@ -1,21 +1,21 @@
 <div class="container brewery-container">
-  <h1>Brewpubs</h1>
+  <h1>Search Breweries</h1>
+  <div class="datatable-style data-source = " <%= breweries_path(format: :json) %> ">
+    <table id="breweries-table" class="display table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Score</th>
+          <th>Info</th>
+        </tr>
+      </thead>
 
-  <table id="breweries-table" class="display table table-bordered table-striped" data-source="<%= breweries_path(format: :json) %>">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>City</th>
-        <th>State</th>
-        <th>Score</th>
-        <th>Info</th>
-      </tr>
-    </thead>
-
-    <tbody>
-    </tbody>
-  </table>
-
+      <tbody>
+      </tbody>
+    </table>
+  </div>
   <br>
   <% if policy(Brewery.new).create? %>
     <%= link_to 'New Brewery', new_brewery_path, method: :get, class: "btn btn-danger" %>

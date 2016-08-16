@@ -2,7 +2,7 @@ class ReviewDatatable < AjaxDatatablesRails::Base
 
   def sortable_columns
     # Declare strings in this format: ModelName.column_name
-    @sortable_columns ||= %w(Association.brewery.name)
+    @sortable_columns ||= %w(User.username)
   end
 
   def searchable_columns
@@ -27,7 +27,7 @@ class ReviewDatatable < AjaxDatatablesRails::Base
   end
 
   def get_raw_records
-    Review.joins(:user, :brewery).where('brewery_id = ?', params[:id])
+    Review.joins(:brewery, :user).where('brewery_id = ?', params[:id])
   end
 
   # ==== Insert 'presenter'-like methods below if necessary
