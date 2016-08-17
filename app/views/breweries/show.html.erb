@@ -3,50 +3,18 @@
     <div class="panel-body">
       <div class="row">
         <div class="col-md-4">
-          <div class="table-responsive">
-            <table class="table">
-              <tbody>
-                <tr>
-                  <td><strong>Name:</strong></td>
-                  <td><%= @brewery.name %></td>
-                </tr>
-                <tr>
-                  <td><strong>Website:</strong></td>
-                  <td><a href="http://<%= @brewery.brewery_url %>"><%= @brewery.brewery_url %></a></td>
-                </tr>
-                <tr>
-                  <td><strong>Address:</strong></td>
-                  <td><%= @brewery.street_address %></td>
-                </tr>
-                <tr>
-                  <td><strong>City:</strong></td>
-                  <td><%= @brewery.city %></td>
-                </tr>
-                <tr>
-                  <td><strong>State:</strong></td>
-                  <td><%= @brewery.state %></td>
-                </tr>
-                <tr>
-                  <td><strong>Postal Code:</strong></td>
-                  <td><%= @brewery.postal_code %></td>
-                </tr>
-                <tr>
-                  <td><strong>Telephone:</strong></td>
-                  <td><%= @brewery.telephone %></td>
-                </tr>
-                <tr>
-                  <td><strong>Type:</strong></td>
-                  <td><%= @brewery.brewery_type %></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <h1><%= @brewery.name %><h1>
+          <h5><a href="http://<%= @brewery.brewery_url %>"><%= @brewery.brewery_url %></a></h5>
+          <h5><%= @brewery.street_address %> <%= @brewery.city %>, <%= @brewery.state %> <%= @brewery.postal_code %></h5>
+          <h5><%= @brewery.telephone %></h5>
+          <h5><%= @brewery.brewery_type %></h5>
         </div>
+      </div>
       </div>
     </div>
   </div>
   <!-- BREWERY BEER DATATABLE -->
-  <div class="col-md-12">
+  <div class="col-md-8 col-md-offset-2">
   <h3 class="review_title"><%= @brewery.name %>'s Beers</h3>
     <div class="datatable-style">
       <table id="brewery-beer-table" class="display table table-hover" data-order='[[ 3, "desc" ]]' data-source = "<%= beers_brewery_path(format: :json) %>">
@@ -66,7 +34,7 @@
   </div>
 
   <!-- BREWERY REVIEWS DATATABLE -->
-  <div class="col-md-12">
+  <div class="col-md-8 col-md-offset-2">
   <h3 class="review_title"><%= @brewery.name %>'s Reviews</h3>
   <% if Review.where(brewery_id: params[:id]).blank? %>
   <div class="form-group row">
