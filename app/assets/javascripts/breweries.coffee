@@ -8,5 +8,4 @@ jQuery ->
     processing: true
     serverSide: true
     autoWidth: false
-    ordering: false
     ajax: $('#breweries-table').data('source')

@@ -3,7 +3,7 @@ class BreweryDatatable < AjaxDatatablesRails::Base
 
   def sortable_columns
     # Declare strings in this format: ModelName.column_name
-    @sortable_columns ||= %w(Brewery.type)
+    @sortable_columns ||= %w(Brewery.name Brewery.city Brewery.state Brewery.brewery_type)
   end
 
   def searchable_columns

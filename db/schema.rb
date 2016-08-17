@@ -17,26 +17,29 @@ ActiveRecord::Schema.define(version: 20160816020632) do
     t.string   "name"
     t.string   "style"
     t.float    "abv"
-    t.text     "description"
+    t.string   "rate_beer_url"
+    t.float    "rate_beer_score"
     t.integer  "brewery_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "beers", ["brewery_id"], name: "index_beers_on_brewery_id"
 
   create_table "breweries", force: :cascade do |t|
     t.string   "name"
+    t.string   "street_address"
     t.string   "city"
-    t.string   "country"
-    t.integer  "postal_code"
     t.string   "state"
+    t.integer  "postal_code"
+    t.string   "country"
     t.string   "telephone"
+    t.string   "brewery_url"
     t.string   "brewery_type"
-    t.boolean  "has_pub"
+    t.string   "hours"
     t.integer  "review_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "reviews", force: :cascade do |t|

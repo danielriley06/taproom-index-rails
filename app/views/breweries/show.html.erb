@@ -11,6 +11,14 @@
                   <td><%= @brewery.name %></td>
                 </tr>
                 <tr>
+                  <td><strong>Name:</strong></td>
+                  <td><a href="http://<%= @brewery.brewery_url %>"><%= @brewery.brewery_url %></a></td>
+                </tr>
+                <tr>
+                  <td><strong>Address:</strong></td>
+                  <td><%= @brewery.street_address %></td>
+                </tr>
+                <tr>
                   <td><strong>City:</strong></td>
                   <td><%= @brewery.city %></td>
                 </tr>
@@ -29,10 +37,6 @@
                 <tr>
                   <td><strong>Type:</strong></td>
                   <td><%= @brewery.brewery_type %></td>
-                </tr>
-                <tr>
-                  <td><strong>Pub?</strong></td>
-                  <td><%= @brewery.has_pub %></td>
                 </tr>
               </tbody>
             </table>
