@@ -49,7 +49,7 @@
   <div class="col-md-12">
   <h3 class="review_title"><%= @brewery.name %>'s Beers</h3>
     <div class="datatable-style">
-      <table id="brewery-beer-table" class="display table table-hover" data-source = "<%= beers_brewery_path(format: :json) %>">
+      <table id="brewery-beer-table" class="display table table-hover" data-order='[[ 3, "desc" ]]' data-source = "<%= beers_brewery_path(format: :json) %>">
         <thead>
           <tr>
             <th>Name</th>
