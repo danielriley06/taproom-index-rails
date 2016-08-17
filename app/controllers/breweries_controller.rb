@@ -1,13 +1,12 @@
 class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy, :user]
   before_action :authenticate_user!
-  after_action :verify_authorized, :except => [:index, :show]
+  after_action :verify_authorized, :except => [:index, :show, :beers]
 
 
   # GET /breweries
   # GET /breweries.json
   def index
-    @search = params[:search].to_s
     respond_to do |format|
       format.html
       format.json { render json: BreweryDatatable.new(view_context) }
@@ -21,6 +20,12 @@ class BreweriesController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: ReviewDatatable.new(view_context) }
+    end
+  end
+
+  def beers
+    respond_to do |format|
+      format.json { render json: BeerDatatable.new(view_context) }
     end
   end
 

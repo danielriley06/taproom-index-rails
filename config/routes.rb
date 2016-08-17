@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resources :breweries do
     resources :reviews
+    member do
+      get 'beers'
+    end
   end
   resources :accounts do
     resources :breweries

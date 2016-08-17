@@ -3,9 +3,16 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
 
-  $('#breweries-table').dataTable
+  $('#brewery-beer-table').dataTable
     pagingType: 'full_numbers'
     processing: true
     serverSide: true
     autoWidth: false
-    ajax: $('#breweries-table').data('source')
+    ajax: $('#brewery-beer-table').data('source')
+
+  $('#brewery-review-table').dataTable
+    pagingType: 'full_numbers'
+    processing: true
+    serverSide: true
+    autoWidth: false
+    ajax: $('#brewery-review-table').data('source')
