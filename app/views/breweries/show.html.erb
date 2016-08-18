@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col-md-4">
           <h1><%= @brewery.name %><h1>
-          <h5><a href="http://<%= @brewery.brewery_url %>"><%= @brewery.brewery_url %></a></h5>
+          <h5><a href="http://<%= @brewery.brewery_url %>" target="_blank"><%= @brewery.brewery_url %></a></h5>
           <h5><%= @brewery.street_address %> <%= @brewery.city %>, <%= @brewery.state %> <%= @brewery.postal_code %></h5>
           <h5><%= @brewery.telephone %></h5>
           <h5><%= @brewery.brewery_type %></h5>
@@ -16,7 +16,7 @@
       </div>
       </div>
     </div>
-  </div>
+
   <!-- BREWERY BEER DATATABLE -->
   <div class="col-md-8 col-md-offset-2">
   <h3 class="review_title"><%= @brewery.name %>'s Beers</h3>

@@ -6,23 +6,34 @@
 */
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+html {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+}
+
 body {
   padding-top: 50px;
   background-color: #f2f2f2;
   font-family: 'Open Sans', sans-serif;
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
 }
+
+
+/* ALERT ANIMATION */
 
 .alert {
   margin-bottom: 0;
 }
 .hideMe {
-  -moz-animation: cssAnimation 0s ease-in 2s forwards;
+  -moz-animation: cssAnimation 0s ease-in-out 2s forwards;
   /* Firefox */
-  -webkit-animation: cssAnimation 0s ease-in 2s forwards;
+  -webkit-animation: cssAnimation 0s ease-in-out 2s forwards;
   /* Safari and Chrome */
-  -o-animation: cssAnimation 0s ease-in 2s forwards;
+  -o-animation: cssAnimation 0s ease-in-out 2s forwards;
   /* Opera */
-  animation: cssAnimation 0s ease-in 2s forwards;
+  animation: cssAnimation 0s ease-in-out 2s forwards;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
@@ -45,6 +56,22 @@ body {
         padding: 0px;
         border: 0px;
         border-radius: 0px;
+    }
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+
+  padding-bottom: 0;
+  margin-bottom: 20px;
+}
+
+.field_with_errors
+{
+    input {
+    border: 2px solid red;
+    background-color: #ffcccc;
     }
 }
 
@@ -210,7 +237,21 @@ body {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.footer-container {
+/* STICKY FOOTER */
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
   background-color: #000;
-  height: 240px;
+}
+
+.footer-container {
+
+}
+
+.footer-text {
+  text-align: center;
 }

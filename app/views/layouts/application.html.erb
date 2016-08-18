@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TaproomIndexRails</title>
+  <title>BrewpubGuru</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
+
   <%= csrf_meta_tags %>
   <!-- Google font -->
   <link href='http://fonts.googleapis.com/css?family=Monoton|Open+Sans' rel='stylesheet' type='text/css'>
@@ -14,12 +15,14 @@
       <%= render 'layouts/navigation' %>
 
     <main role="main">
+       <%= devise_error_messages! %>
        <%= render 'layouts/messages' %>
        <%= yield %>
     </main>
   </body>
-  <footer>
-    <div class="footer footer-container">
+  <footer class="footer">
+    <div class="container">
+      <a class="navbar-brand text-center" href="/breweries" method="get" style="font-family: 'Monoton', cursive">BrewpubGuru</a>
     </div>
   </footer>
 </html>

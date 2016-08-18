@@ -1,8 +1,17 @@
 <%# Rails flash messages styled for Bootstrap 3.0 %>
 <% flash.each do |name, msg| %>
   <% if msg.is_a?(String) %>
-    <div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %> hideMe">
-      <%= content_tag :div, msg, :id => "flash_#{name}", :class => "hideMe" %>
+    <div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %> custom-alert">
+      <%= content_tag :div, msg, :id => "flash_#{name}", :class => "custom-alert" %>
     </div>
   <% end %>
 <% end %>
+
+<script>
+window.setTimeout(function() {
+
+    $(".custom-alert").slideUp(500, function() {
+        $(this).remove();
+    });
+}, 3000);
+</script>
