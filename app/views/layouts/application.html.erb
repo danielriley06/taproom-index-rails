@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
   <!-- Google font -->
   <link href='http://fonts.googleapis.com/css?family=Monoton|Open+Sans' rel='stylesheet' type='text/css'>
+  <%= yield :index_head %>
 </head>
 <body>
 
@@ -17,4 +18,8 @@
        <%= yield %>
     </main>
   </body>
+  <footer>
+    <div class="footer footer-container">
+    </div>
+  </footer>
 </html>

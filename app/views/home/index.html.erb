@@ -1,28 +1,20 @@
+<% content_for :index_head do %>
+  <style>body {background-color: #2e2f33;}</style>
+<% end %>
 
-  <div class="jumbotron jumbotron-albums jumbotron-hero">
-    <div class="container">
-    <h1>Hello, beer!</h1>
-    <p>Use Brewpubguru to find and track breweries and brewpubs.
-    Create an account to track and add reviews or jump right in and search our listings with the search box below!</p>
-    <div id="custom-search-input">
-      <div class="input-group col-md-12">
-        <%= form_tag(breweries_path, :method => "get", id: "search-form") do %>
-          <div class="input-group">
-            <%= text_field_tag :search, params[:search], class:'form-control', placeholder:'Search for brewpubs by city, state, or name...'%>
-            <span class="input-group-btn">
-              <%= button_tag( :class => "btn btn-danger") do %>
-              <span class='glyphicon glyphicon-search'></span>
-              <% end %>
-            </span>
-          </div>
-        <% end %>
+  <div class="jumbotron jumbotron-index-1">
+
+      <div class="jumbotron-index-1-bg">
+        <div class="jumbotron-span">
+          <h1>Hello, beer!</h1>
+          <p>Use Brewpubguru to find and track breweries and brewpubs.
+          Create an account to track and add reviews or jump right in and search our listings with the search box below!</p>
+          <a class="btn btn-danger btn-lg" href="/breweries" role="button">Search our breweries!</a>
+        </div>
       </div>
-    </div>
-  </div>
-  </div>
 
-
-  <div class="jumbotron jumbotron-devices">
+  </div>
+  <div class="jumbotron-index-2">
     <div class="container">
 
         <div class="col-sm-4 text-left text-white">

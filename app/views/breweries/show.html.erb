@@ -1,4 +1,8 @@
+<% content_for :nav_btn do %>
+  <a class="btn btn-success navbar-btn" href="/breweries" role="button">Back</a>
+<% end %>
 <div class="container brewery-container">
+
   <div class="panel panel-default">
     <div class="panel-body">
       <div class="row">
@@ -35,7 +39,7 @@
 
   <!-- BREWERY REVIEWS DATATABLE -->
   <div class="col-md-8 col-md-offset-2">
-  <h3 class="review_title"><%= @brewery.name %>'s Reviews</h3>
+
   <% if Review.where(brewery_id: params[:id]).blank? %>
   <div class="form-group row">
     <div class="col-sm-10">
@@ -44,6 +48,7 @@
     </div>
   </div>
   <% else %>
+  <h3 class="review_title">Reviews</h3>
   <div class="datatable-style">
   <table id="brewery-review-table" class="display table table-hover" data-source = "<%= brewery_path(format: :json) %>">
     <thead>
@@ -65,8 +70,7 @@
   <% end %>
   </div>
   <div class="form-group row">
-    <div class="col-sm-10">
-      <%= link_to "Back", breweries_path, class: "btn btn-primary", method: :get %>
+    <div class="col-md-8 col-md-offset-2">
       <% if policy(@brewery).create? %>
       <%= link_to 'Edit', edit_brewery_path(@brewery), class: 'btn btn-success' %>
       <% end %>

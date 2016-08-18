@@ -3,15 +3,15 @@
   <h1>First things first...<br><small>Type a city or state into that seach box below.</small></h1>
   </div>
 
-  <div class="datatable-style" data-source = " <%= breweries_path(format: :json) %> ">
+  <div class="datatable-style"  data-page-length="25" data-source = "<%= breweries_path(format: :json) %>">
     <table id="breweries-table" class="display table table-hover">
       <thead>
         <tr>
           <th>Name</th>
           <th>City</th>
           <th>State</th>
-          <th>Score</th>
-          <th>Info</th>
+          <th>Type</th>
+          <th></th>
         </tr>
       </thead>
 
