@@ -1,6 +1,15 @@
 <div class="container brewery-container">
   <div class="page-header">
-  <h1>First things first...<br><small>Type a city or state into that seach box below.</small></h1>
+    <div class="row">
+      <div class="col-sm-6">
+        <h1>First things first...<br><small>Type a city or state into that seach box below.</small></h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <%= link_to 'Add a Brewery', new_brewery_path, method: :get, class: "btn btn-danger pull-right" %>
+      </div>
+    </div>
   </div>
 
   <div class="datatable-style"  data-page-length="25" data-source = "<%= breweries_path(format: :json) %>">
@@ -21,6 +30,6 @@
   </div>
   <br>
   <% if policy(Brewery.new).create? %>
-    <%= link_to 'New Brewery', new_brewery_path, method: :get, class: "btn btn-danger" %>
+
   <% end %>
 </div>
