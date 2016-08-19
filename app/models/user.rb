@@ -10,11 +10,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:google_oauth2]
 
-  validates :username, presence: true
-  validates :email, format: { with: /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i }
-  validates :password, confirmation: true
-  validates :password, presence: true, length: {minimum: 5, maximum: 120}, on: :create
-  validates :password, length: {minimum: 5, maximum: 120}, on: :update, allow_blank: true
+  validates :username, presence: true, unless: -> { from_omniauth? }
+  validates :email, format: { with: /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i }, unless: -> { from_omniauth? }
+  validates :password, confirmation: true, unless: -> { from_omniauth? }
+  validates :password, presence: true, length: {minimum: 5, maximum: 120}, on: :create, unless: -> { from_omniauth? }
+  validates :password, length: {minimum: 5, maximum: 120}, on: :update, allow_blank: true, unless: -> { from_omniauth? }
 
   def update_password_with_password(params, *options)
     current_password = params.delete(:current_password)
@@ -44,5 +44,11 @@ class User < ActiveRecord::Base
         )
     end
     user
+  end
+
+  private
+  
+  def from_omniauth?
+    provider && uid
   end
 end

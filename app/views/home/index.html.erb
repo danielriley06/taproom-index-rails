@@ -1,32 +1,228 @@
-<% content_for :index_head do %>
-  <style>body {background-color: #2e2f33;}</style>
-<% end %>
+<!DOCTYPE html>
+<html lang="en">
 
-  <div class="jumbotron jumbotron-index-1">
+<head>
 
-      <div class="jumbotron-index-1-bg">
-        <div class="jumbotron-span">
-          <h1>Hello, beer!</h1>
-          <p>Use Brewpubguru to find and track breweries and brewpubs.
-          Create an account to track and add reviews or jump right in and search our listings with the search box below!</p>
-          <a class="btn btn-danger btn-lg" href="/breweries" role="button">Search our breweries!</a>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>BrewpubGuru</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Custom Fonts -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Monoton|Open+Sans' rel='stylesheet' type='text/css'>
+
+    <link href="/magnific-popup.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link href="/navbar-login.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="/creative.css" rel="stylesheet">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top" style="font-family: 'Monoton', cursive">BrewpubGuru</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                  <% if user_signed_in? %>
+                  <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %><span class="caret"></span></a>
+                     <ul class="dropdown-menu">
+                        <li>
+                        <li><%= link_to('My Breweries', account_path(current_user), :method => :get, class: '') %></li>
+                        <li role="separator" class="divider"></li>
+                        <li><%= link_to('Edit Account', edit_user_registration_path, :method => :get, class: '')  %></li>
+                        <li><%= link_to('Sign Out', destroy_user_session_path, :method => :delete, class: '')  %></li>
+                        </li>
+                     </ul>
+                  </li>
+                  <% else %>
+                  <li><a href="/users/sign_up">Sign Up!</a></li>
+                  <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+                     <ul id="login-dp" class="dropdown-menu">
+                        <li>
+                           <div class="row">
+                              <div class="col-md-12">
+                                 Login via
+                                 <div class="social-buttons">
+                                    <%= button_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: 'btn btn-success btn-block' %>
+                                 </div>
+                                 <div class="authform">
+                                    <%= form_for(resource, :as => :user, :url => session_path(:user), :html => { :role => 'form'}) do |f| %>
+                                    <h3>Sign in</h3>
+                                    <%= devise_error_messages! %>
+                                    <div class="form-group">
+                                       <%= f.label :email %>
+                                       <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
+                                    </div>
+                                    <div class="form-group">
+                                       <%= f.label :password %>
+                                       <%= f.password_field :password, class: 'form-control' %>
+                                    </div>
+                                    <%- if devise_mapping.recoverable? %>
+                                    <%= link_to "Forgot password?", new_password_path(:user), class: 'right' %>
+                                    <% end -%>
+                                    <%= f.submit 'Sign in', :class => 'btn btn-primary btn-block' %>
+                                    <% if devise_mapping.rememberable? -%>
+                                    <div class="checkbox" style="width:150px">
+                                       <label>
+                                       <%= f.check_box :remember_me %> Remember me
+                                       </label>
+                                    </div>
+                                    <% end -%>
+                                    <% end %>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                     </ul>
+                  </li>
+                  <% end %>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-      </div>
+        <!-- /.container-fluid -->
+    </nav>
 
-  </div>
-  <div class="jumbotron-index-2">
-    <div class="container">
-
-        <div class="col-sm-4 text-left text-white">
-          <h2>
-            It's Easy.
-          </h2>
-          <h3 class="text-aquamarine">
-            Search
-          </h3>
-          <p>Just want to find your next brewpub? Start searching.</p>
-
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 id="homeHeading">Go straight to the source</h1>
+                <hr>
+                <p>America has become the greatest beer brewing country in the world. Become a part of this beer history and taste the best by searching, ranking, and tracking your brewery visits.</p>
+                <a href="/users/sign_up" class="btn btn-primary btn-xl page-scroll">Sign Up and start searching!</a>
+            </div>
         </div>
+    </header>
 
-    </div>
-  </div>
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Always free, and we will never email you!</h2>
+                    <hr class="light">
+                    <p class="text-faded">Unless you want to pay us in beer, of course. Or maybe you're lonely and want an email or two? Anyways, back to finding your next favorite brewery. </p>
+                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">At Your Service</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-beer text-primary sr-icons"></i>
+                        <h3>Review and Track</h3>
+                        <p class="text-muted">Easily leave reviews and track brewery visits. A brewery scrapbook of sorts?</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-star text-primary sr-icons"></i>
+                        <h3>Rank by beer scores</h3>
+                        <p class="text-muted">Our algorithm combines beer scores from across the web, so you can find the best.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-map-o text-primary sr-icons"></i>
+                        <h3>Search by City</h3>
+                        <p class="text-muted">Easily scout out nearby breweries.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-google text-primary sr-icons"></i>
+                        <h3>Easy Login</h3>
+                        <p class="text-muted">Connect with your Google account for a quick and easy signup.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>5,000+ Breweries at your fingertips.</h2>
+                <a href="/users/sign_up" class="btn btn-default btn-xl sr-button">Ok, ok. I'll join already!</a>
+            </div>
+        </div>
+    </aside>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading" style="font-family: 'Monoton', cursive">BrewpubGuru</h2>
+                    <hr class="primary">
+                    
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 text-center">
+                    <i class="fa fa-building-o fa-3x sr-contact"></i>
+                    <p>Proudly built in Millburn, NJ</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+                    <p><a href="mailto:your-email@your-domain.com">feedback@brewpub.guru</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="/scrollreveal.js"></script>
+    <script src="/jquery.magnific-popup.js"></script>
+    <script src="/creative.js"></script>
+
+
+</body>
+
+</html>

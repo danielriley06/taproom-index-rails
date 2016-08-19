@@ -1,0 +1,134 @@
+.alert {
+  margin-bottom: 0;
+}
+.hideMe {
+  -moz-animation: cssAnimation 0s ease-in-out 2s forwards;
+  /* Firefox */
+  -webkit-animation: cssAnimation 0s ease-in-out 2s forwards;
+  /* Safari and Chrome */
+  -o-animation: cssAnimation 0s ease-in-out 2s forwards;
+  /* Opera */
+  animation: cssAnimation 0s ease-in-out 2s forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+        padding: 0px;
+        border: 0px;
+        border-radius: 0px;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+        padding: 0px;
+        border: 0px;
+        border-radius: 0px;
+    }
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+
+  padding-bottom: 0;
+  margin-bottom: 20px;
+}
+
+.field_with_errors
+{
+    input {
+    border: 2px solid red;
+    background-color: #ffcccc;
+    }
+}
+
+/* CUSTOM NAVBAR COLOR AND LINK COLOR */
+
+
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
+    background-color: rgba(0,0,0,0.2);
+    color: #fff;
+}
+.btn-nav {
+  background-color: #329932;
+}
+
+/* LOGIN DROPDOWN STYLING */
+
+.form-control-inline {
+    min-width: 0;
+    width: auto;
+    display: inline;
+}
+
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+    font-size:12px
+}
+#login-dp .bottom{
+    clear:both;
+    padding:14px;
+}
+#login-dp .social-buttons{
+    margin:12px 0
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+.btn-fb{
+    color: #fff;
+    background-color:#3b5998;
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc
+}
+.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#59b5fa;
+}
+
+.account-button {
+    background-color: #222;
+    color: #777;
+    border: 0px;
+}
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'magnific-popup-rails'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'ajax-datatables-rails', github: 'antillas21/ajax-datatables-rails'
 gem 'jquery-ui-rails'

@@ -12,6 +12,7 @@
           <h5><%= @brewery.street_address %> <%= @brewery.city %>, <%= @brewery.state %> <%= @brewery.postal_code %></h5>
           <h5><%= @brewery.telephone %></h5>
           <h5><%= @brewery.brewery_type %></h5>
+          <%= link_to 'Edit Brewery Info', edit_brewery_path(@brewery), class: 'btn btn-outline-success' %>
         </div>
       </div>
       </div>
@@ -72,7 +73,7 @@
   <div class="form-group row">
     <div class="col-md-8 col-md-offset-2">
       <% if policy(@brewery).create? %>
-      <%= link_to 'Edit', edit_brewery_path(@brewery), class: 'btn btn-success' %>
+
       <% end %>
     </div>
   </div>
