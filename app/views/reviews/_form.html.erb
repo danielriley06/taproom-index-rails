@@ -1,70 +1,69 @@
 <div class="container">
-	<div class="col-lg-12 well">
-	<div class="row">
-<%= form_for([@brewery, @review]) do |f| %>
-  <% if @review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
-
-      <ul>
-      <% @review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-<div class="col-sm-9 col-sm-offset-3">
-  <div class="row">
-    <div class="col-sm-9 form-group">
-      <%= f.label :ambiance %><br>
-      <%= f.number_field :ambiance, :class => "form-control" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-9 form-group">
-      <%= f.label :service %><br>
-      <%= f.number_field :service, :class => "form-control" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-9 form-group">
-      <%= f.label :selection %><br>
-      <%= f.number_field :selection, :class => "form-control" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-9 form-group">
-      <%= f.label :food %><br>
-      <%= f.number_field :food, :class => "form-control" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-9 form-group">
-      <%= f.label :value %><br>
-      <%= f.number_field :value, :class => "form-control" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-9 form-group">
-      <%= f.label :date_visited %><br>
-      <%= f.date_select :date_visited, :class => "form-control col-md-1" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-9 form-group">
-      <%= f.label :description %><br>
-      <%= f.text_area :description, :class => "form-control", :rows => "5"%>
-    </div>
-  </div>
-  <%= f.hidden_field :brewery_id %>
-  <%= f.hidden_field :user_id %>
-  <div class="row">
-    <div class="col-sm-9">
-      <%= f.submit "Submit", :class => "btn btn-success btn-block"%>
-    </div>
-  </div>
-</div>
-<% end %>
-</div>
-</div>
+   <div class="col-lg-12 well">
+      <div class="row">
+         <%= form_for([@brewery, @review]) do |f| %>
+         <% if @review.errors.any? %>
+         <div id="error_explanation">
+            <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+            <ul>
+               <% @review.errors.full_messages.each do |message| %>
+               <li><%= message %></li>
+               <% end %>
+            </ul>
+         </div>
+         <% end %>
+         <div class="col-sm-9 col-sm-offset-3">
+            <div class="row">
+               <div class="col-sm-9 form-group">
+                  <%= f.label :ambiance %><br>
+                  <%= f.number_field :ambiance, :class => "form-control" %>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-9 form-group">
+                  <%= f.label :service %><br>
+                  <%= f.number_field :service, :class => "form-control" %>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-9 form-group">
+                  <%= f.label :selection %><br>
+                  <%= f.number_field :selection, :class => "form-control" %>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-9 form-group">
+                  <%= f.label :food %><br>
+                  <%= f.number_field :food, :class => "form-control" %>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-9 form-group">
+                  <%= f.label :value %><br>
+                  <%= f.number_field :value, :class => "form-control" %>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-9 form-group">
+                  <%= f.label :date_visited %><br>
+                  <%= f.date_select :date_visited, :class => "form-control col-md-1" %>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-9 form-group">
+                  <%= f.label :description %><br>
+                  <%= f.text_area :description, :class => "form-control", :rows => "5"%>
+               </div>
+            </div>
+            <%= f.hidden_field :brewery_id %>
+            <%= f.hidden_field :user_id %>
+            <div class="row">
+               <div class="col-sm-9">
+                  <%= f.submit "Submit", :class => "btn btn-success btn-block"%>
+               </div>
+            </div>
+         </div>
+         <% end %>
+      </div>
+   </div>
 </div>
