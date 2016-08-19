@@ -46,7 +46,7 @@
 							<div class="col-md-12">
 								Login via
 								<div class="social-buttons">
-									<%= button_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+									<%= button_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: 'btn btn-success btn-block' %>
 								</div>
                 <div class="authform">
                   <%= form_for(resource, :as => :user, :url => session_path(:user), :html => { :role => 'form'}) do |f| %>
