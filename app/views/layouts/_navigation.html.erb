@@ -46,7 +46,7 @@
 							<div class="col-md-12">
 								Login via
 								<div class="social-buttons">
-									<a href="#" class="btn btn-fb"><i class="social social-google-plus"></i> Google</a>
+									<%= button_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
 								</div>
                 <div class="authform">
                   <%= form_for(resource, :as => :user, :url => session_path(:user), :html => { :role => 'form'}) do |f| %>
@@ -70,7 +70,7 @@
                             <%= f.check_box :remember_me %> Remember me
                           </label>
                         </div>
-                        
+
                       <% end -%>
                   <% end %>
                 </div>
