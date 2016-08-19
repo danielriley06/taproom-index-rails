@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
-
+#Styling and datatables related gems
 gem 'magnific-popup-rails'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'ajax-datatables-rails', github: 'antillas21/ajax-datatables-rails'
 gem 'jquery-ui-rails'
+#Geocoding and Maps
 gem 'geocoder'
 #gem 'will_paginate'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'

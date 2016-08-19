@@ -4,6 +4,8 @@ class Brewery < ActiveRecord::Base
   has_many :users, through: :reviews
   has_many :beers
 
+  accepts_nested_attributes_for :reviews
+
   validates :name, presence: true
   validates :street_address, presence: true
   validates :city, presence: true
@@ -14,6 +16,12 @@ class Brewery < ActiveRecord::Base
   validates :brewery_url, presence: true
   validates :brewery_type, presence: true
 
+  geocoded_by :address   # can also be an IP address
+  after_validation :geocode          # auto-fetch coordinates
+
+  def address
+    [street_address, city, state, postal_code].compact.join(', ')
+  end
 
   def location
     [city, state].join(', ')
