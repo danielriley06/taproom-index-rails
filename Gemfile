@@ -11,6 +11,7 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'pundit'
 # Devise to handle auth
 gem 'devise'
+gem 'omniauth-google-oauth2'
 # rails_admin to add admin dashboard
 gem 'rails_admin'
 gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit"

@@ -22,6 +22,8 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/1/edit
   def edit
+    @brewery = Brewery.find params[:brewery_id]
+    @review = Review.find params[:id]
   end
 
   # POST /reviews

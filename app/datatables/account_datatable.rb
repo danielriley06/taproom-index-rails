@@ -22,8 +22,9 @@ class AccountDatatable < AjaxDatatablesRails::Base
         record.date_visited,
         content_tag(:div) do
           concat(link_to("Info", brewery_path(:id => record.brewery_id), class: 'btn btn-success'))
-          #concat(link_to_if(record.review_id.nil?, "Review", new_brewery_review_path(brewery_id: record.brewery_id), class: 'btn btn-success'))
-          #concat(link_to_if(record.review_id.present?, "Review", edit_brewery_review_path(:brewery_id => record.brewery_id, :id => record.review_id)))
+          concat("   ")
+          concat(link_to("Review", edit_brewery_review_path(:brewery_id => record.brewery_id, :id => record.id), class:
+          'btn btn-danger'))
 
         end
       ]
