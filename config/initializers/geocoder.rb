@@ -1,5 +1,5 @@
 Geocoder.configure(
-:lookup => :google, :api_key => 'AIzaSyC_0xWEQj0bW2770AjgpP8TBwzPUjMdoDY', :use_https => true
+:lookup => :bing, :api_key => 'Ak2rMXu9F305IX06W6V5KQB7TDNk8loBzjj_PQZ4dvvEgtWIBrUa3hp0nD1p_Ig1'
   # Geocoding options
   # timeout: 3,                 # geocoding service timeout (secs)
   # lookup: :google,            # name of geocoding service (symbol)

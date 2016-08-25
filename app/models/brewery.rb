@@ -16,15 +16,12 @@ class Brewery < ActiveRecord::Base
   validates :brewery_url, presence: true
   validates :brewery_type, presence: true
 
-  geocoded_by :address   # can also be an IP address
-  after_validation :geocode          # auto-fetch coordinates
+  geocoded_by :address
+  after_validation :geocode
+
 
   def address
     [street_address, city, state, postal_code].compact.join(', ')
-  end
-
-  def location
-    [city, state].join(', ')
   end
 
   def self.filter_brewery_name(search)
