@@ -8,11 +8,39 @@ function initialize() {
     center: new google.maps.LatLng(37.09024, -95.712891),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
+
   map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
   new google.maps.Marker({map:map,position:map.getCenter()})
 
+  var marker, i;
+  var markers = [];
+  var location = <%= @markers.html_safe %>;
+  for (var i = 0; i < location.length; i++) {
+    var obj = location[i]
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(obj.lat, obj.lng),
+      map: map,
+      title: obj.title
+    });
+    markers.push(marker);
+  }
 
+  var clusterStyles = [
+    {
+      textColor: 'white',
+      url: '<%= asset_path('marker.png') %>',
+      height: 50,
+      width: 50
+    }
+  ];
+  var mcOptions = {
+    gridSize: 50,
+    styles: clusterStyles,
+    maxZoom: 15,
+    averageCenter: true
+  };
+  var markerclusterer = new MarkerClusterer(map, markers, mcOptions);
 
   google.maps.event.addListener(map, 'center_changed', function() {
 

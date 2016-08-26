@@ -15,3 +15,4 @@
 //= require jquery-ui
 //= require twitter/bootstrap
 //= require bootstrap.js
+//= require_tree ../../../vendor/assets/javascripts/.
