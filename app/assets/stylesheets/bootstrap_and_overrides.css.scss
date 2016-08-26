@@ -21,6 +21,16 @@ body {
   margin-bottom: 60px;
 }
 
+/* BREWPUB MAP */
+#map {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+  width: 100%;
+  height: calc(100% - 60px);
+  z-index: 0;
+}
 
 /* ALERT ANIMATION */
 

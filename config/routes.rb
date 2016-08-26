@@ -1,18 +1,22 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   root to: 'home#index'
+
   resources :breweries do
     resources :reviews
     member do
       get 'beers'
     end
   end
+
   resources :accounts do
     resources :breweries
   end
 
-  devise_for :users, :controllers => { registrations: 'users/registrations', sessions: 'users/sessions', omniauth_callbacks: "users/omniauth_callbacks" } 
+  devise_for :users, :controllers => { registrations: 'users/registrations', sessions: 'users/sessions', omniauth_callbacks: "users/omniauth_callbacks" }
 
+  get '/brewmap', to: 'maps#brewmap'
 
 
 

@@ -6,15 +6,7 @@ class Brewery < ActiveRecord::Base
 
   accepts_nested_attributes_for :reviews
 
-  validates :name, presence: true
-  validates :street_address, presence: true
-  validates :city, presence: true
-  validates :state, presence: true
-  validates :postal_code, presence: true
-  validates :country, presence: true
-  validates :telephone, presence: true
-  validates :brewery_url, presence: true
-  validates :brewery_type, presence: true
+  validates :name, :street_address, :city, :state, :postal_code, :country, :telephone, :brewery_url, :brewery_type, presence: true
 
   geocoded_by :address
   after_validation :geocode

@@ -1,3 +1,6 @@
+<% content_for :index_head do %>
+<%= javascript_include_tag 'datatables' %>
+<% end %>
 <div class="container brewery-container">
 
   <h1><%= current_user.username %>'s Brewpubs</h1>

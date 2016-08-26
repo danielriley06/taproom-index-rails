@@ -2,13 +2,13 @@
 <html>
 <head>
   <title>BrewpubGuru</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
-
+  <%= yield :index_head %>
   <%= csrf_meta_tags %>
   <!-- Google font -->
   <link href='http://fonts.googleapis.com/css?family=Monoton|Open+Sans' rel='stylesheet' type='text/css'>
-  <%= yield :index_head %>
 </head>
 <body>
 
@@ -17,8 +17,9 @@
     <main role="main">
        <%= devise_error_messages! %>
        <%= render 'layouts/messages' %>
-       <%= yield %>
+
     </main>
+    <%= yield %>
   </body>
   <footer class="footer">
     <div class="container">
