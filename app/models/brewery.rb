@@ -16,7 +16,11 @@ class Brewery < ActiveRecord::Base
     [street_address, city, state, postal_code].compact.join(', ')
   end
 
-  def self.filter_brewery_name(search)
-    Brewery.where("name LIKE ? OR city LIKE ? OR state LIKE ?", "%#{search}%","%#{search}%","%#{search}%")
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      all
+    end
   end
 end
