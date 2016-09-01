@@ -27,5 +27,6 @@ module TaproomIndexRails
       "<span class='field_with_errors'>#{html_tag}</span>".html_safe
     }
 
+    config.serve_static_assets = true
   end
 end
