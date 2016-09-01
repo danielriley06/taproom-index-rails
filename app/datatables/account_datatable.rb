@@ -1,5 +1,5 @@
 class AccountDatatable < AjaxDatatablesRails::Base
-  def_delegators :@view, :link_to, :link_to_if, :h, :mailto, :edit_resource_path, :resource_url, :other_method, :content_tag, :concat, :brewery_path, :new_brewery_review_path, :edit_brewery_review_path
+  def_delegators :@view, :link_to, :link_to_if, :h, :mailto, :edit_resource_path, :resource_url, :other_method, :content_tag, :concat, :brewery_path, :new_brewery_review_path, :edit_brewery_review_path, :current_user
 
   def sortable_columns
     # Declare strings in this format: ModelName.column_name
@@ -32,7 +32,7 @@ class AccountDatatable < AjaxDatatablesRails::Base
   end
 
   def get_raw_records
-    Review.joins(:user, :brewery)
+    Review.joins(:user, :brewery).where("user_id = ?", current_user)
   end
 
   # ==== Insert 'presenter'-like methods below if necessary
