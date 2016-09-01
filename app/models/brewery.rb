@@ -17,7 +17,8 @@ class Brewery < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('city LIKE ? AND latitude IS NOT ?', "%#{search}%", nil)
+      city = search.downcase
+      where('lower(city) LIKE ? AND latitude IS NOT ?', "%#{city}%", nil)
     else
       all
     end
