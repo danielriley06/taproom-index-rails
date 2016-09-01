@@ -11,6 +11,8 @@
  * file per style scope.
  *
  *= require bootstrap_and_overrides
+ *= require twitter-bootstrap-static/bootstrap
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+ *= require twitter-bootstrap-static/sprites
  *= require_self
  */

@@ -1,10 +1,14 @@
 <div id="map"></div>
+
 <%= form_tag(brewmap_path, :method => "get", id: "search-form") do %>
 <%= text_field_tag :search, params[:search], placeholder: "Search Brewmap", class: "form-control" %>
 <%= submit_tag "Search" %>
 <% end %>
+
 <%= javascript_include_tag 'markerclusterer' %>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYIwla-PLCt43EXoOMRZIKILfvOPyRBG8"></script>
+
 <script type="text/javascript">
 function initialize() {
   var mapOptions = {
@@ -53,7 +57,6 @@ function initialize() {
 
     //when the center has changed, but not the size of the map
     if(!this.get('size') || size===this.get('size')){
-      console.log('ccc');
       this.setValues({size:size,_center:this.getCenter()});
     }
     //when the map has been resized
