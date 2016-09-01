@@ -22,6 +22,7 @@ body {
 }
 
 /* BREWPUB MAP */
+
 #map {
   position: absolute;
   left: 0px;
@@ -31,9 +32,10 @@ body {
   height: calc(100% - 60px);
   z-index: 0;
 }
+
 #search-form {
    position:relative;
-   z-index:1000; //change your number as per elements lies on your page.
+   z-index:1000;
 }
 
 /* ALERT ANIMATION */
