@@ -1,6 +1,4 @@
-//= require landing/creative
-//= require landing/jquery.magnific-popup
-//= require landing/scrollreveal
+//= require_tree ./landing
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
