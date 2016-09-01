@@ -10,7 +10,7 @@ body {
   background: linear-gradient(#fff, #fafafa);
   font-family: 'Open Sans', sans-serif;
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin: 0px 0px 60px 0px !important;
 }
 
 /* BREWPUB MAP */
@@ -255,10 +255,6 @@ body {
   /* Set the fixed height of the footer here */
   height: 60px;
   background-color: #000;
-}
-
-.footer-container {
-
 }
 
 .footer-text {
