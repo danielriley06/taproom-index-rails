@@ -6,7 +6,7 @@ class Brewery < ActiveRecord::Base
 
   accepts_nested_attributes_for :reviews
 
-  
+
   geocoded_by :address
   after_validation :geocode
 
@@ -17,7 +17,7 @@ class Brewery < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('name LIKE ?', "%#{search}%")
+      where('city LIKE ? AND latitude IS NOT ?', "%#{search}%", nil)
     else
       all
     end

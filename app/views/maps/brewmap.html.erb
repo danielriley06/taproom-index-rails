@@ -1,73 +1,58 @@
 <div id="map"></div>
 
-<%= form_tag(brewmap_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search Brewmap", class: "form-control" %>
-<%= submit_tag "Search" %>
-<% end %>
+<%= form_tag brewmap_path, :method => 'get', class: 'input-group'  do %>
+    <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search for a city...' %>
+    <span class="input-group-btn">
+      <%= button_tag(type: 'submit', class: "btn btn-default") do %>
+        <i class="glyphicon glyphicon-search"></i>
+      <% end %>
+    </span>
+  <% end %>
 
 <%= javascript_include_tag 'markerclusterer' %>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYIwla-PLCt43EXoOMRZIKILfvOPyRBG8"></script>
+<script src=""></script>
 
 <script type="text/javascript">
 function initialize() {
-  var mapOptions = {
-    zoom: 5,
-    center: new google.maps.LatLng(37.09024, -95.712891),
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
 
-  map = new google.maps.Map(document.getElementById('map'),
-      mapOptions);
-  new google.maps.Marker({map:map,position:map.getCenter()})
+  var locations = <%= @markers.html_safe %>;
 
-  var marker, i;
-  var markers = [];
-  var location = <%= @markers.html_safe %>;
-  for (var i = 0; i < location.length; i++) {
-    var obj = location[i]
-    var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(obj.lat, obj.lng),
-      map: map,
-      title: obj.title
+  window.map = new google.maps.Map(document.getElementById('map'), {
+        mapTypeId: google.maps.MapTypeId.ROADMAP
     });
-    markers.push(marker);
-  }
 
-  var clusterStyles = [
-    {
-      textColor: 'white',
-      url: '<%= asset_path('marker.png') %>',
-      height: 50,
-      width: 50
+    var infowindow = new google.maps.InfoWindow();
+
+    var bounds = new google.maps.LatLngBounds();
+
+    for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map
+        });
+
+        bounds.extend(marker.position);
+
+        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            return function () {
+                infowindow.setContent(locations[i][0]);
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
     }
-  ];
-  var mcOptions = {
-    gridSize: 50,
-    styles: clusterStyles,
-    maxZoom: 15,
-    averageCenter: true
-  };
-  var markerclusterer = new MarkerClusterer(map, markers, mcOptions);
 
-  google.maps.event.addListener(map, 'center_changed', function() {
+    map.fitBounds(bounds);
 
-    //a value to determine whether the map has been resized
-    var size=[this.getDiv().offsetWidth,this.getDiv().offsetHeight].join('x');
+  
+}
 
-    //when the center has changed, but not the size of the map
-    if(!this.get('size') || size===this.get('size')){
-      this.setValues({size:size,_center:this.getCenter()});
-    }
-    //when the map has been resized
-    else{
-      google.maps.event.addListenerOnce(this,'idle',function(){console.log('rrr');
-      this.setValues({size:size,center:this.get('_center')});});
-    }
-  });
-  //trigger the resize-event to initialize the size and _center-values
-  google.maps.event.trigger(map,'center_changed',{});
-  }
+function loadScript() {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAYIwla-PLCt43EXoOMRZIKILfvOPyRBG8'+ '&callback=initialize';
+    document.body.appendChild(script);
+}
 
-  google.maps.event.addDomListener(window, 'load', initialize);
+window.onload = loadScript;
 </script>
