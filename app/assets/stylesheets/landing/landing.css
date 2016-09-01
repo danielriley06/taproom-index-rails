@@ -1,3 +1,5 @@
 /*
-*= require_tree ./landing
+*= require landing/creative
+*= require landing/navbar-login
+*= require landing/magnific-popup
 */
