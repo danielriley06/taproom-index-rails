@@ -17,7 +17,7 @@ class Brewery < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('city LIKE ? AND latitude IS NOT ?', "%#{search}%", nil)
+      where('city LIKE ?', "%#{search}%")
     else
       all
     end
