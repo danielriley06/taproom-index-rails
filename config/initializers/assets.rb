@@ -9,4 +9,4 @@ Rails.application.config.assets.version = '1.1'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += ['datatables.js','landing/landing.css','landing/landing.js','markerclusterer.js']
+Rails.application.config.assets.precompile += ['datatables.js','landing/landing.css','landing/jquery.magnific-popup.js','landing/creative.js','landing/scrollreveal.js','markerclusterer.js']
